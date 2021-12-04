@@ -18,9 +18,16 @@ recognition.addEventListener("result",e => {
        .map(result =>result.transcript ).join("") // this will show the speech in console.
        
        
-       p.textContent = transcript
+       p.textContent = transcript;
+       if(e.results[0].isFinal){
+           p = document.createElement("p");   //this will create p automatically as the content will increase 
+           words.appendChild(p)
+       }
+       if(transcript.includes("hello siri how are you")  ){
+           p.textContent = "hey tanishk ! I am fine good to see you back "
+       }
 
-       console.log(transcript);
+    //    console.log(transcript);
 }  )
 
 recognition.addEventListener("end",recognition.start  )
