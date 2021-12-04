@@ -9,3 +9,8 @@
 
  let p = document.createElement("p");
  wordPara.appendChild(p);
+
+ recognition.addEventListner("Results",e=>{
+
+    console.log(e);
+ }  );
