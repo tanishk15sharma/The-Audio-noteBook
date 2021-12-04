@@ -1,16 +1,18 @@
+window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition ;
 
- const wordPara = document.querySelector(".words");
- 
- window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const recognition = new SpeechRecognition();
+recognition.interimResults =true;
 
+let p = document.createElement("p");
+const words = document.querySelector(".words")
+words.appendChild(p)
 
- const recognition = new SpeechRecognition();
- recognition.interimResults = true ;
+// console.log(recognition);
 
- let p = document.createElement("p");
- wordPara.appendChild(p);
+// console.log(words);
 
- recognition.addEventListner("Results",e=>{
-
+recognition.addEventListener("result",e => {
     console.log(e);
- }  );
+}  )
+
+recognition.start();
